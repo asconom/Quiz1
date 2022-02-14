@@ -49,12 +49,9 @@ for row in reader:
     gpa = float(row[8])
     student_id = int(row[0])
     if gpa < 3.00:
-        outfile.write(row[0] + ',' + 
-        row[1] + ',' + 
+        outfile.write(row[0] + ',' +  
         row[2] + ',' + 
         row[3] + ',' + 
-        row[4] + ',' +
-        row[5] + ',' +
         row[6] + ',' +
         row[7] + ',' +
         row[8] + '\n')
