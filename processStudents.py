@@ -21,54 +21,63 @@ through the logic of the problem.
 
 
 import csv
+from lib2to3.pgen2.token import NEWLINE
 
 
 # create a file object to open the file in read mode
+infile = open('students.csv', 'r')
 
 
 
 # create a csv object from the file object
+reader = csv.reader(infile)
 
 
 #skip the header row
-
+next(reader)
 
 #create an outfile object for the pocessed record
-
+outfile = open('processedStudents.csv', 'a')
 
 
 #create a new dictionary named 'student_dict'
-
+student_dict = {}
 
 
 #use a loop to iterate through each row of the file
-
+for row in reader:
     #check if the GPA is below 3.0. If so, write the record to the outfile
-    
-        
+    gpa = row[8]
+    student_id = row[2]
+    if float(gpa) < 3.00:
+        writer(row[0] + ',')
+        #print(student_id)
+        #print(gpa)    
 
 
 
     # append the record to the dictionary with the student id as the Key
     # and the value as the GPA
-    
+        student_dict[student_id] = gpa
 
 
 
 
 
 #print the entire dictionary
-
+print(student_dict)
 
 #Print the student id 
-
+for key in student_dict:
+    print(key)
 
 #print out the corresponding GPA from the dictionary
-
+    print(student_dict[key])
 
 
 #close the outfile
-
+outfile.close()
+infile.close()
 
 
 
